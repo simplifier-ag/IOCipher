@@ -335,4 +335,9 @@ public class VirtualFileSystem {
      */
     public native void completeTransaction();
 
+    /**
+     * Removes whitespace from DB file
+     */
+    public native int vacuum();
+
 }

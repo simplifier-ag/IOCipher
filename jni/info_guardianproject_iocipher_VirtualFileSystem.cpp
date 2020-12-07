@@ -242,6 +242,10 @@ static void VirtualFileSystem_completeTransaction(JNIEnv *env, jobject) {
     return;
 }
 
+static jint VirtualFileSystem_vacuum(JNIEnv *env, jobject) {
+    return sqlfs_vacuum(sqlfs);
+}
+
 static JNINativeMethod sMethods[] = {
     {"getContainerPath", "()Ljava/lang/String;", (void *)VirtualFileSystem_getContainerPath},
     {"setContainerPath", "(Ljava/lang/String;)V", (void *)VirtualFileSystem_setContainerPath},
@@ -254,6 +258,7 @@ static JNINativeMethod sMethods[] = {
     {"detachThread", "()V", (void *)VirtualFileSystem_detachThread},
     {"beginTransaction", "()V", (void *)VirtualFileSystem_beginTransaction},
     {"completeTransaction", "()V", (void *)VirtualFileSystem_completeTransaction},
+    {"vacuum", "()I", (void *)VirtualFileSystem_vacuum},
 };
 int register_info_guardianproject_iocipher_VirtualFileSystem(JNIEnv* env) {
     jclass cls = env->FindClass("info/guardianproject/iocipher/VirtualFileSystem");

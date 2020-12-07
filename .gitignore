@@ -37,3 +37,4 @@ gradle.properties
 .idea/
 *.iml
 .externalNativeBuild/
+.cxx
